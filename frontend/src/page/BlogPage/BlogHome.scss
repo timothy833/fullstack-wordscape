@@ -1,0 +1,137 @@
+@import "../../style/variables";  // 確保變數被載入
+.blog_swiper {
+  img {
+    height: clamp(226px, 50vw, 400px);
+  }
+  .blog-banner_content {
+    position: absolute;
+    bottom: 0%;
+    padding: 0 12px;
+  }
+}
+.blog-swiper-pagination {
+  position: absolute;
+  z-index: 999;
+  bottom: clamp(16px, 5vw, 48px);
+  right: clamp(16px, 5vw, 48px);
+  @media (max-width: 1200px) {
+    right: 10px;
+  }
+  a {
+    width: 40px;
+    height: 40px;
+  }
+}
+.blog-home_mainBanner {
+  position: relative;
+  overflow: hidden;  // ✅ 確保圓角生效
+  background-blend-mode: normal; // ✅ 確保背景色和圖片不混合
+  &::before {
+    position: absolute;
+    content: "";
+    border-radius: inherit; // ✅ 確保偽元素也有圓角
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // background:#FDFBF5;
+    background: #00000026;
+  }
+  @media (min-width: 768px) {
+    padding-top: clamp(40px, 10vw, 205px) !important;
+  }
+}
+.articleList_header button {
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 162px;
+  }
+}
+.blog-home_articleSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='%23E77605'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 20px;
+  @media (min-width: 768px) {
+    width: 176px;
+  }
+}
+
+.modal-content {
+  overflow-y: auto; /* 讓內部文字區域滾動 */
+}
+
+.max-h {
+  height: 90vh !important;
+}
+
+.ql-container {
+  height: auto !important;
+}
+
+.ql-editor {
+  min-height: 200px;
+  max-height: 350px !important; /* 限制最大高度 */
+  overflow-y: auto !important;  /* 讓內部文字區域滾動 */
+}
+
+// .ql-tooltip {
+//     position: relative !important;
+//     max-width: 310px !important;  /* 避免 tooltip 過寬被切掉 */
+//     left: auto  !important;
+//     top: auto !important;
+  
+// }
+
+.ql-formats{
+ margin-right: 5px !important;
+}
+
+.custom-link{
+  color: inherit; // 初始狀態跟父層一樣
+  text-decoration: none;
+  
+  &:hover{
+    color: $primary_hover; // 使用 SCSS 變數
+  }
+}
+
+// .accordion-button {
+//   background-color: transparent; /* 讓標題區域符合側邊欄風格 */
+//   color: #e77605; /* 讓標題顏色與主題相符 */
+//   font-weight: bold;
+
+// }
+
+.accordion-collapse {
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.accordion-body {
+  padding-left: 20px; /* 讓文章標題有縮排 */
+}
+
+.blog-home_header {
+  max-height: 800px; /* ✅ 確保不超過視窗高度 */
+  
+  transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #fffaeb !important; /* ✅ 修改展開時的背景色 */
+  color: #e77605 !important; /* ✅ 讓文字顏色符合主題 */
+  box-shadow: none !important; /* ✅ 移除黑色陰影 */
+}
+
+// 在你的 SCSS 或 CSS 文件中添加
+.hover-effect {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: $primary_hover !important;; // 使用你的 SCSS 變數
+  }
+}

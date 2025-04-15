@@ -1,0 +1,56 @@
+.access-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 1055;
+  }
+  
+.access-modal-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+  
+.login{
+    background-color: $secondary;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://github.com/timothy833/-Wordscape/blob/main/src/assets/images/AccessPage/img-access.png?raw=true');
+    background-size: 50%;
+    background-position: bottom left; 
+    background-repeat: no-repeat;
+}
+
+.login-card{
+    padding: 30px 30px 40px 30px;
+
+}
+.mb-10{
+    margin-bottom: 20px;
+}
+/* 修改 floating label 的樣式 */
+.form-floating .form-control {
+    background-color: #fba44d5a;
+    border: none;
+}
+
+.form-floating label {
+    color: #FBA44D;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #FBA44D;
+}
+
+.login-btn-close{
+    position: absolute;
+    top: 5%;
+    left: 86%;
+    z-index: 1;
+}
+
+  

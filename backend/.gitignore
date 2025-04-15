@@ -1,0 +1,21 @@
+# Node.js 相關
+node_modules/
+.env
+.env.local
+.env.production
+.npmrc
+
+# Log 檔案
+logs/
+*.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# VSCode 相關
+.vscode/
+
+# 其他 IDE 設定檔
+.idea/
+.DS_Store

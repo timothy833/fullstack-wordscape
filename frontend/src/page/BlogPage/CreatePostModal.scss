@@ -1,0 +1,35 @@
+.modal-content {
+    overflow-y: auto; /* 讓內部文字區域滾動 */
+}
+
+.max-h {
+    height: 90vh !important;
+}
+
+
+.ql-container {
+    height: auto !important;
+}
+  
+
+.ql-editor {
+    min-height: 200px;
+    max-height: 350px !important; /* 限制最大高度 */
+    overflow-y: auto !important;  /* 讓內部文字區域滾動 */
+}
+
+// .ql-tooltip {
+//     position: relative !important;
+//     max-width: 310px !important;  /* 避免 tooltip 過寬被切掉 */
+//     left: auto  !important;
+//     top: auto !important;
+    
+// }
+
+.ql-formats{
+   margin-right: 5px !important;
+}
+
+
+
+

@@ -1,0 +1,95 @@
+.navbar {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  @include media-breakpoint-up(lg) {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+.search-bar {
+  width: 240px;
+  height: 40px;
+}
+.searchbar-icon {
+  z-index: 1000;
+  position: absolute;
+  left: calc(0% + 12px);
+  top:  calc(0% + 20px);;
+  @include media-breakpoint-up(lg) {
+    top:  calc(0% + 8px);
+    left: calc(0% + 12px);
+    font-weight: 300;
+  }
+}
+.homepage-dropdown {
+  transform: translate(-48px, 38px);
+  min-width: 152px;
+  li:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  .dropdown-item:hover,
+  .dropdown-item:active {
+    background-color: $primary;
+    color: $light;
+  }
+}
+.homepage-collapse {
+  .dropdown-item:hover,
+  .dropdown-item:active {
+    background-color: $primary;
+    color: $light;
+  }
+}
+
+.homepage-collapse {
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+}
+
+.btn-register {
+  position: relative;
+  height: 40px;
+  width: 90px;
+  z-index: 2;
+  background-color: $primary;
+}
+
+.btn-login {
+  position: absolute;
+  height: 40px;
+  width: 90px;
+  z-index: 1;
+  right: 25px;
+  background-color: $primary_hover;
+}
+
+.btn-group:hover .btn-register {
+  background-color: $primary_hover;
+}
+
+.btn-group:hover .btn-login {
+  background-color: $primary;
+}
+
+.btn-group::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  background: $primary;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.nav-text-btn:hover,
+.nav-text-btn:focus,
+.nav-text-btn:active {
+  color: $primary;
+}
+

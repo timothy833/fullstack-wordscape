@@ -1,0 +1,32 @@
+version: '3.9'  # ✅ 使用 Docker Compose v3.9 語法（支援最新屬性）
+services:
+  frontend:
+    build: ./frontend  # 🔧 使用 frontend 資料夾下 Dockerfile 建構 image
+    ports:
+      - "5173:80"  # 🌐 主機 5173 對應容器內 nginx 的 80 port
+    depends_on:
+      - backend  # ⏱️ 需等待 backend 服務啟動完成後才啟動 frontend
+
+  
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000" # 🌐 主機 3000 port ➜ 容器內 Express 服務的 3000 port
+    env_file:
+      - ./backend/.env # 📄 載入環境變數檔（本地使用）
+    depends_on:
+      - db  # ⏱️ 需等 db 啟動後再啟動 backend
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"  # 🐘 主機 5432 port ➜ 容器 PostgreSQL 資料庫連接埠
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: wordscape
+    volumes:
+      - db_data:/var/lib/postgresql/data # 💾 將資料夾掛到本地 volume，重啟也不會遺失資料
+
+volumes:
+  db_data:  # ✅ 宣告名稱為 db_data 的 volume（存在於主機非容器內，資料持久化）
