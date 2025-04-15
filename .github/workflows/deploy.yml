@@ -38,7 +38,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./frontend/dist
 
         # 🔐 3. 登入 Docker Hub （目前 Render 不會用到，可保留註解供他日使用）
       # - name: Login to Docker Hub
