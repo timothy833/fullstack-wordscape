@@ -21,6 +21,7 @@ jobs:
 
       # 🧪 注入 .env.production（給 GitHub Pages build 使用）
       - name: Inject .env.production for GitHub Pages
+        working-directory: ./frontend
         run: |
           echo "GITHUB_PAGES=${{ secrets.IS_GITHUB_PAGES }}" > .env.production
           echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env.production
