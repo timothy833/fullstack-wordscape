@@ -7,8 +7,12 @@
 FROM node:18 AS builder
 WORKDIR /app
 
-# ✅ 拷貝 .env 檔案進去容器（這裡是關鍵）
-COPY .env .env
+# ✅ 宣告要接收外部注入的環境變數
+ARG VITE_API_BASE_URL
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+
+# ✅ 自行生成 .env.production 檔案供 Vite 使用（注意這是關鍵）
+RUN echo "VITE_API_BASE_URL=$VITE_API_BASE_URL" > .env.production
 
 # ✅ 複製整個前端專案（含 package.json、src、vite.config.js 等）
 COPY . .  
