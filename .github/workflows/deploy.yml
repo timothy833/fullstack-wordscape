@@ -19,14 +19,19 @@ jobs:
         run: echo "DOCKER_BUILDKIT=1" >> $GITHUB_ENV
 
 
-      # 🧪 注入 .env.production（給 GitHub Pages build 使用）
+      # 🧪 注入 .env.production（給 GitHub Pages build 使用）（⚠️ 不是用 GITHUB_ENV）
       - name: Inject .env.production for GitHub Pages
         working-directory: ./frontend
         run: |
-          echo "GITHUB_PAGES=${{ secrets.IS_GITHUB_PAGES }}" > $GITHUB_ENV
-          echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> $GITHUB_ENV
+          echo "GITHUB_PAGES=${{ secrets.IS_GITHUB_PAGES }}" > .env.production
+          echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env.production
 
-      # 🔧（可選）如需 GitHub Pages build 可補上：
+         # 🔍（除錯）列出環境檔確認內容
+      - name: Debug env
+        working-directory: ./frontend
+        run: cat .env.production
+
+      # 🔧 安裝與打包 Vite 專案
       - name: Install frontend dependencies
         working-directory: ./frontend
         run: npm install
@@ -34,7 +39,8 @@ jobs:
       - name: Build Vite project
         working-directory: ./frontend
         run: npm run build
-
+      
+      # 🚀 發布到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
