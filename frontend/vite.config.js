@@ -7,7 +7,7 @@ export default defineConfig(({ mode })=>{
   // ✅ 載入對應環境變數（例如 .env.production）
   const env = loadEnv(mode, process.cwd(), '');
 
-  const isGitHubPages = env.IS_GITHUB_PAGES === 'true';
+  const isGitHubPages = env.GITHUB_PAGES === 'true';
   const base = isGitHubPages ? '/fullstack-wordscape/' : '/';
   
   return {
